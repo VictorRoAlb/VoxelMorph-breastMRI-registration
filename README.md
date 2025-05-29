@@ -16,7 +16,10 @@ TFG_Victor.pdf        - Final Bachelor’s Thesis document
 - TensorFlow 2.18.0  
 - VoxelMorph 0.2  
 - SimpleITK  
-- nibabel, numpy, pandas, scikit-image, scipy, medpy  
+- nibabel, numpy, pandas, scikit-image, scipy, medpy
+- matplotlib
+- tqdm
+- multiprocessing
 - MATLAB:
   - `imresize3` for 3D downsampling and inter-modality resolution matching
   - `vol3d` and `volumeViewer` for 3D visualization
