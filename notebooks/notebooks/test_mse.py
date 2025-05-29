@@ -14,8 +14,6 @@ from skimage.filters import threshold_otsu
 from medpy.metric.binary import dc, hd95
 import warnings
 
-warnings.filterwarnings("ignore")
-tf.get_logger().setLevel('ERROR')
 
 # === CONFIGURATION ===
 # Base directory for the project (adjust according to your environment)
