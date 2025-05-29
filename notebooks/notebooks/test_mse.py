@@ -34,7 +34,7 @@ TEST_LIST        = os.path.join(BASE_DIR, 'particiones', 'test_list.txt')
 # Output directories for test results
 OUTPUT_DIR       = os.path.join(BASE_DIR, 'test_results_MSE')
 VOL_DIR          = os.path.join(OUTPUT_DIR, 'test_volumes_corregistrados_MSE')  # Registered volumes output folder
-FLOW_DIR         = os.path.join(OUTPUT_DIR, 'campos_deformacion')              # Deformation fields output folder
+FLOW_DIR         = os.path.join(OUTPUT_DIR, 'campos_deformacion_MSE')              # Deformation fields output folder
 
 # Create output directories if they do not exist
 os.makedirs(OUTPUT_DIR, exist_ok=True)
