@@ -1,16 +1,14 @@
 #!/usr/bin/env python
 # This script is based on the official test.py from the 
 # VoxelMorph GitHub repository
-# ==========================================================
 # Evaluation script for the model trained with NCC, 
-# ----------------------------------------------------------
 # This script is structurally identical to the one used for
 # MSE evaluation. It uses:
 #  - NCC-specific directories for weights and outputs
 #  - Weight filename: perf_dti_final_weights_NCC.h5
 #  - Full metric logging and volume saving
 # This ensures consistency across the pipeline for analysis.
-# ==========================================================
+
 
 import os
 import time
