@@ -4,7 +4,7 @@ This repository contains the full implementation and documentation of my Bachelo
 
 ## Project Overview
 The aim of this project is to prepare and adapt breast MRI data for deformable multimodal registration using VoxelMorph. A complete preprocessing pipeline was developed, including dimensionality reduction, intensity normalization, and rigid/affine registrations. Pretrained 3D VoxelMorph models were fine-tuned using both MSE and NCC loss functions on downsampled image pairs. Final deformation fields were rescaled to high-resolution and applied to the original volumes. Quantitative and qualitative assessments were carried out using multiple similarity metrics to evaluate registration performance before and after processing. Qualitative evaluation was performed by visualizing the 3D volumes using MATLAB-based tools.
-difo
+
 ## Repository Structure
 /notebooks/           - Jupyter notebooks: preprocessing, training, testing  
 /scripts_matlab/      - MATLAB scripts for downsampling and 3D visualization  
