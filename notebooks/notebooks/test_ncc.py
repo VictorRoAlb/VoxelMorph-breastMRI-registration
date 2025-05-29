@@ -30,20 +30,31 @@ warnings.filterwarnings("ignore")
 tf.get_logger().setLevel('ERROR')
 
 # === CONFIGURATION ===
+# Base directory for the project (adjust according to your environment)
 BASE_DIR         = '/content/drive/MyDrive/TFG_Victor'
-WEIGHTS_DIR      = os.path.join(BASE_DIR, 'NCC - saved weights')
+
+# Directory where trained NCC model weights are stored
+WEIGHTS_DIR      = os.path.join(BASE_DIR, 'NCC - pesos guardados')
+
+# Filename of the final trained weights for NCC model
 MODEL_FILENAME   = 'perf_dti_final_weights_NCC.h5'
+
+# Full path to trained model weights
 MODEL_PATH       = os.path.join(WEIGHTS_DIR, MODEL_FILENAME)
 
+# Test data split list file (train-test partition consistent with training)
 TEST_LIST        = os.path.join(BASE_DIR, 'particiones', 'test_list.txt')
 
+# Output directories for test results
 OUTPUT_DIR       = os.path.join(BASE_DIR, 'test_results_NCC')
-VOL_DIR          = os.path.join(OUTPUT_DIR, 'registered_volumes_NCC')
-FLOW_DIR         = os.path.join(OUTPUT_DIR, 'deformation_fields_NCC')
+VOL_DIR          = os.path.join(OUTPUT_DIR, 'test_volumes_corregistrados_NCC')  # Registered volumes output folder
+FLOW_DIR         = os.path.join(OUTPUT_DIR, 'campos_deformacion_NCC')              # Deformation fields output folder
 
+# Create output directories if they do not exist
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 os.makedirs(VOL_DIR, exist_ok=True)
 os.makedirs(FLOW_DIR, exist_ok=True)
+
 
 # === METRICS ===
 # Evaluation metrics computed here are consistent with those defined in
