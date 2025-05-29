@@ -1,2 +1,33 @@
-# voxelMorph-breastMRI-registration
-Final Bachelor's Thesis on deep learning-based deformable registration of breast DTI and DCE-MRI using VoxelMorph.
+
+# VoxelMorph Applied to Breast MRI Registration
+This repository contains the full implementation and documentation of my Bachelor's Thesis in Biomedical Engineering at ETSII - Universitat Politècnica de València (UPV). The project focuses on adapting the VoxelMorph deep learning-based deformable registration framework to dynamic contrast-enhanced (DCE) and diffusion tensor imaging (DTI) breast MRI data obtained in a real clinical setting.
+
+## Project Overview
+The aim of this project is to prepare and adapt breast MRI data for deformable multimodal registration using VoxelMorph. A complete preprocessing pipeline was developed, including dimensionality reduction, intensity normalization, and rigid/affine registrations. Pretrained 3D VoxelMorph models were fine-tuned using both MSE and NCC loss functions on downsampled image pairs. Final deformation fields were rescaled to high-resolution and applied to the original volumes. Quantitative and qualitative assessments were carried out using multiple similarity metrics to evaluate registration performance before and after processing. Qualitative evaluation was performed by visualizing the 3D volumes using MATLAB-based tools.
+difo
+## Repository Structure
+/notebooks/           - Jupyter notebooks: preprocessing, training, testing  
+/scripts_matlab/      - MATLAB scripts for downsampling and 3D visualization  
+/results/             - Visualizations and performance metrics  
+TFG_Victor.pdf        - Final Bachelor’s Thesis document  
+
+## Technologies Used
+- Python 3.x  
+- TensorFlow 2.18.0  
+- VoxelMorph 0.2  
+- SimpleITK  
+- nibabel, numpy, pandas, scikit-image, scipy, medpy  
+- MATLAB:
+  - `imresize3` for 3D downsampling and inter-modality resolution matching
+  - `vol3d` and `volumeViewer` for 3D visualization
+  - `imshowpair` and RGB overlay methods for 2D multimodal comparison
+
+## Credits
+This project includes adaptations of code from VoxelMorph (https://github.com/voxelmorph/voxelmorph), developed by the Computational Radiology Lab (Harvard/MIT), released under the MIT License.
+
+## Contact
+Victor Rodríguez Albendea 
+Bachelor's Degree in Biomedical Engineering  
+Email: victorrodriguezalb@gmail.com
+
+
