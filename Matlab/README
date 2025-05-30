@@ -7,8 +7,8 @@ These scripts support the Python-based pipeline by facilitating initial data pre
 ## Contents
 
 ### imresize3
-Used to downsample high-resolution DTI and perfusion volumes to the input resolution required by the VoxelMorph model (160×192×224).  
-Also applied to match voxel spacing between imaging modalities prior to training.
+Used to downsample both DTI and perfusion volumes to the input resolution required by the VoxelMorph model (160×192×224).  
+Also used later to homogenize the high-resolution volumes of both modalities during the final step of rescaling and applying the deformation fields.
 
 ### imshowpair
 Used for 2D multimodal visualization. Enables side-by-side comparison or RGB overlay between DTI and perfusion images to assess registration quality.
