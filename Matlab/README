@@ -1,1 +1,30 @@
+# MATLAB Scripts for Preprocessing and Visualization
 
+This folder contains auxiliary MATLAB utilities used in the preprocessing and visualization stages of the project **VoxelMorph-breastMRI-registration**.
+
+These scripts support the Python-based pipeline by facilitating initial data preparation and post-registration qualitative analysis.
+
+## Contents
+
+### imresize3
+Used to downsample high-resolution DTI and perfusion volumes to the input resolution required by the VoxelMorph model (160×192×224).  
+Also applied to match voxel spacing between imaging modalities prior to training.
+
+### imshowpair
+Used for 2D multimodal visualization. Enables side-by-side comparison or RGB overlay between DTI and perfusion images to assess registration quality.
+
+### vol3d and volumeViewer
+Used for interactive 3D visualization of registered volumes. Helpful to assess anatomical alignment across slices and volumes.
+
+## Notes
+
+- These scripts were not part of the deep learning training pipeline, but were used in essential preprocessing and evaluation steps.
+- All data was processed and saved in NIfTI format to ensure compatibility with the main Python-based workflow in Google Colab.
+
+## Requirements
+
+- MATLAB R2019b or later
+- Image Processing Toolbox
+- vol3d (available on FileExchange or included in some MATLAB distributions)
+
+For further details on how these utilities were used, refer to Chapter 4 of the TFG report.
