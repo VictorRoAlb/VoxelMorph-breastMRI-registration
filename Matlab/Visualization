@@ -1,0 +1,40 @@
+% === VISUALIZATION SCRIPT ===
+% This script is used to visually inspect the alignment and overlay of DTI and perfusion volumes.
+% It assumes that the volumes are already resampled and normalized.
+% It supports both 3D rendering using RGB fusion (volshow) and 2D overlay inspection (imshowpair).
+
+% === SELECT VOLUMES FOR VISUALIZATION ===
+% Choose the DTI and perfusion NIfTI volumes to be loaded. These should already be in high resolution and aligned.
+volPerf = niftiread('C:\TFG Victor\perf_15_normalizado_alta_resolucion.nii');
+volDTI  = niftiread('C:\TFG Victor\dti_15_reg_final.nii');
+
+% === PRINT ORIGINAL DIMENSIONS ===
+% Display the size of the loaded volumes to confirm matching dimensions.
+fprintf('\nOriginal dimensions:\n');
+fprintf('Perfusion: [%s]\n', join(string(size(volPerf)), ' × '));
+fprintf('DTI:       [%s]\n', join(string(size(volDTI)), ' × '));
+
+% === RGB FUSION FOR OVERLAY ===
+% Construct a 4D RGB volume where:
+% - Red channel = perfusion
+% - Green channel = DTI
+% This enables combined visualization of both modalities.
+vol_rgb = zeros([size(volPerf), 3]);
+vol_rgb(:,:,:,1) = double(volPerf);  % Red channel
+vol_rgb(:,:,:,2) = double(volDTI);   % Green channel
+
+% Normalize the RGB volume to the [0, 1] range
+vol_rgb = vol_rgb - min(vol_rgb(:));
+vol_rgb = vol_rgb / max(vol_rgb(:));
+
+% === 3D VOLUME VISUALIZATION ===
+% Display the RGB fused volume in 3D using volshow (volume rendering).
+viewer = volshow(vol_rgb, 'RenderingStyle','VolumeRendering');
+viewer.Parent.BackgroundColor = [0 0 0];  % Set black background for better contrast
+
+% === 2D SLICE OVERLAY VISUALIZATION ===
+% Display one slice using imshowpair for detailed 2D comparison.
+midSlice = round(size(volPerf, 3) / 2);  % Use mid-slice in the Z axis
+figure;
+imshowpair(volPerf(:,:,midSlice), volDTI(:,:,midSlice));
+title('Mid-slice overlay using imshowpair');
