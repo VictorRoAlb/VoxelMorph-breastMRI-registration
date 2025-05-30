@@ -2,29 +2,30 @@
 
 This folder contains auxiliary MATLAB utilities used in the preprocessing and visualization stages of the project **VoxelMorph-breastMRI-registration**.
 
-These scripts support the Python-based pipeline by facilitating initial data preparation and post-registration qualitative analysis.
+These scripts support the Python-based pipeline by facilitating initial data preparation and post-registration qualitative inspection.
 
 ## Contents
 
-### imresize3
-Used to downsample both DTI and perfusion volumes to the input resolution required by the VoxelMorph model (160×192×224).  
-Also used later to homogenize the high-resolution volumes of both modalities during the final step of rescaling and applying the deformation fields.
+### `imresize3`
+Used to resample both DTI and perfusion volumes to the input resolution required by the VoxelMorph model (160×192×224).  
+Also reused to homogenize the high-resolution voxel sizes of both modalities when rescaling and applying deformation fields.
 
-### imshowpair
-Used for 2D multimodal visualization. Enables side-by-side comparison or RGB overlay between DTI and perfusion images to assess registration quality.
+### `imshowpair`
+Used for 2D multimodal visualization. Enables slice-by-slice overlay between DTI and perfusion images to qualitatively assess registration quality. Especially useful for detecting misalignment in individual planes.
 
-### vol3d and volumeViewer
-Used for interactive 3D visualization of registered volumes. Helpful to assess anatomical alignment across slices and volumes.
+### `vol3d` and `volumeViewer`
+Used for interactive 3D visualization of registered or fused volumes. While `vol3d` allows RGB overlay rendering, `volumeViewer` is suitable for single-modality exploration (DTI or perfusion separately).It is helpful for anatomical inspection in 3D when observing each modality independently.
+
 
 ## Notes
-
-- These scripts were not part of the deep learning training pipeline, but were used in essential preprocessing and evaluation steps.
-- All data was processed and saved in NIfTI format to ensure compatibility with the main Python-based workflow in Google Colab.
+- These scripts were not part of the deep learning training pipeline, but were essential for data preprocessing and qualitative evaluation.
+- All volumes were saved in NIfTI format to ensure compatibility with the Python-based workflow (e.g., in Google Colab).
 
 ## Requirements
 
-- MATLAB R2019b or later
+- MATLAB R2024b or later
 - Image Processing Toolbox
-- vol3d (available on FileExchange or included in some MATLAB distributions)
+- `vol3d` (available via FileExchange or included in some MATLAB distributions)
 
 For further details on how these utilities were used, refer to Chapter 4 of the TFG report.
+
